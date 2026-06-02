@@ -3,87 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的个人主页</title>
+    <title>我的个人博客</title>
     <style>
-        /* 这里是页面的样式部分 */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f2f5;
+        /* --- 基础样式重置 --- */
+        * {
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #e0e0e0;
             min-height: 100vh;
+            padding: 40px 20px;
         }
         .container {
-            background-color: white;
-            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.05);
             border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+
+        /* --- 头部样式 --- */
+        header {
             text-align: center;
-            max-width: 400px;
-            width: 90%;
+            margin-bottom: 40px;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background-color: #ddd;
-            margin: 0 auto 20px;
-            /* 这里用了一个渐变色代替头像图片，你可以换成 <img> 标签 */
-            background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        h1 {
-            color: #333;
+        header h1 {
+            font-size: 2.5em;
+            background: linear-gradient(45deg, #00dbde, #fc00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 10px;
-            font-size: 24px;
         }
-        p {
-            color: #666;
+        header p {
+            color: #aaa;
+            font-size: 1.1em;
+        }
+
+        /* --- 项目卡片样式 --- */
+        .projects {
+            display: grid;
+            gap: 20px;
+        }
+        .project-card {
+            background-color: rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 25px;
+            transition: transform 0.3s, background 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            background-color: rgba(255, 255, 255, 0.12);
+        }
+        .project-card h3 {
+            color: #6eff8a;
+            margin-bottom: 10px;
+            font-size: 1.4em;
+        }
+        .project-card p {
+            color: #ddd;
             line-height: 1.6;
-            margin-bottom: 30px;
+            margin-bottom: 15px;
         }
         .btn {
             display: inline-block;
             padding: 10px 25px;
-            background-color: #007bff;
+            background: linear-gradient(45deg, #667eea, #764ba2);
             color: white;
             text-decoration: none;
             border-radius: 25px;
-            transition: background-color 0.3s;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
         }
         .btn:hover {
-            background-color: #0056b3;
+            background: linear-gradient(45deg, #764ba2, #667eea);
+            transform: scale(1.05);
         }
-        .footer {
-            margin-top: 20px;
-            font-size: 12px;
-            color: #999;
+
+        /* --- 页脚 --- */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #777;
+            font-size: 0.9em;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- 头像区域 -->
-        <div class="avatar"></div>
-        
-        <!-- 文字内容 -->
-        <h1>你好，我是千问</h1>
-        <p>
-            欢迎来到我的静态网页！<br>
-            这是一个简单又干净的 HTML 页面模板。<br>
-            你可以在这里写写自我介绍，或者分享你的爱好。
-        </p>
-        
-        <!-- 按钮链接 -->
-        <a href="#" class="btn">联系我</a>
+        <!-- 博客头部 -->
+        <header>
+            <h1>👋 欢迎来到我的博客</h1>
+            <p>这里是 <span id="location">山西省太原市</span> 的代码角落 | 记录我的编程足迹</p>
+        </header>
 
-        <div class="footer">
-            © 2026 静态页面测试
-        </div>
+        <!-- 项目列表 -->
+        <main class="projects">
+            
+            <!-- 项目 1: 洛克王国远行商人提醒 -->
+            <div class="project-card">
+                <h3>🚀 项目一：洛克王国远行商人提醒</h3>
+                <p>
+                    这是我的第一个实战项目！这是一个专为《洛克王国》玩家设计的辅助工具，
+                    能够自动提醒远行商人的出现时间与商品信息，帮助玩家不错过每一个稀有道具。
+                </p>
+                <!-- 这里是你要的跳转链接 -->
+                <a href="https://github.com/jinjidangnian/rocom-merchant-reminder" class="btn" target="_blank">
+                    查看项目详情
+                </a>
+            </div>
+
+            <!-- 未来你可以在这里复制下面的代码块来添加新项目 -->
+            <!-- 
+            <div class="project-card">
+                <h3>🎮 项目二：[项目名称]</h3>
+                <p>
+                    [在这里写项目的简短介绍]。
+                </p>
+                <a href="#" class="btn" target="_blank">
+                    访问项目
+                </a>
+            </div>
+            -->
+
+        </main>
+
+        <!-- 页脚 -->
+        <footer>
+            <p>© 2026 我的个人博客. 用 ❤️ 和代码构建.</p>
+        </footer>
     </div>
 
+    <!-- 这段JS是为了在页面上显示你的所在地 -->
+    <script>
+        document.getElementById('location').textContent = '山西省太原市';
+    </script>
 </body>
 </html>
